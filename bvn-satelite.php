@@ -2,10 +2,11 @@
 /* 
 Plugin Name: BVN Satelite
 Plugin URI: http://www.bvn.ch
-Description: Liest Daten aus der BVN.ch API und stellt diese in einem Widget dar
+Description: Reads Data from the BVN.ch API and displays them in a WordPress Widget
 Version: 1.0
 Author: Thomas Winter
 Author URI: http://www.houseofwinter.ch
+@license https://github.com/atlan79/bvn-satelite/blob/master/LICENSE.md MIT
 */
 
 
