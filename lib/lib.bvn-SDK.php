@@ -1,12 +1,12 @@
 <?php
 /**
- * BVN.ch SDK for PHP
+ * BVN Satelite
  * 
  * PHP SDK for interacting with the BVN.ch API
  * 
  * @author Thomas Winter
- * @license https://github.com/atlan79/BVNch-SDK/blob/master/LICENSE.md MIT
- * @version 0.1 beta
+ * @license https://github.com/atlan79/bvn-satelite/blob/master/LICENSE.md MIT
+ * @version 0.6 beta
  */
 class BvnchSDK {
 
