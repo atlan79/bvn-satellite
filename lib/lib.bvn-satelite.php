@@ -1,6 +1,14 @@
 <?php
-
-
+/**
+ * BVN Satelite
+ * 
+ * WordPress Plugin for interacting with the BVN.ch API
+ * 
+ * @author Thomas Winter
+ * @license https://github.com/atlan79/bvn-satelite/blob/master/LICENSE.md MIT
+ * @version 0.6 beta
+ */ 
+ 
 /**
  * Parse Ranking
  * @param array with Ranking Data $arRanking
