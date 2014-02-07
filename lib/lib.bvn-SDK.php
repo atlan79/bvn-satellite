@@ -1,12 +1,12 @@
 <?php
 /**
- * BVN Satelite
+ * BVN Satellite
  * 
  * PHP SDK for interacting with the BVN.ch API
  * 
  * @author Thomas Winter
- * @license https://github.com/atlan79/bvn-satelite/blob/master/LICENSE.md MIT
- * @version 0.6 beta
+ * @license https://github.com/atlan79/bvn-satellite/blob/master/LICENSE.md MIT
+ * @version 1.2
  */
 class BvnchSDK {
 
@@ -46,15 +46,16 @@ class BvnchSDK {
 	 */
 	const URL_API = 'http://api.bvn.ch/';
 
-	const URL_RANKING_LIST_LEAGUE = 'ranking.php?format=json';
+	const URL_MATCHES_LIST_REALM = 'list.php?format=json';
+	const URL_MATCHES_LIST_LEAGUE = 'list.php?format=json&realm=liga';
+	const URL_MATCHES_LIST_CLUB = 'list.php?format=json&realm=club';
+	const URL_MATCHES_LIST_TEAM = 'list.php?format=json&realm=team';
 	
-	const URL_MATCHES_LIST_REALM = 'matches.php?format=json';
-	const URL_MATCHES_LIST_LEAGUE = 'matches.php?format=json&realm=liga';
-	const URL_MATCHES_LIST_CLUB = 'matches.php?format=json&realm=club';
-	const URL_MATCHES_LIST_TEAM = 'matches.php?format=json&realm=team';
+	const URL_MATCHES_LIST_LIGA_TEAM = 'list.php?format=json&realm=liga&id=%s';
+	const URL_MATCHES_LIST_CLUB_TEAM = 'list.php?format=json&realm=club&id=%s';
 
 	const URL_RANKING = 'ranking.php?format=json&league_id=%s';
-	const URL_MATCHES = 'matches.php?format=json&realm=%s&id=%s';
+	const URL_MATCHES = 'matches.php?format=json&realm=%s&id=%s&view=%s';
 	const URL_MATCHES_TODAY = 'matches.php?format=json&realm=today';
 
     /**
@@ -69,45 +70,55 @@ class BvnchSDK {
 
 
 	/**
-     * Get List of Leagues for Ranking
-	 * 
-     */
-    public function getRankingListLeague () {
-    	return $this->request(sprintf(self::URL_RANKING_LIST_LEAGUE));
-    }
-
-	/**
-     * Get List of Realms for Schedule
+     * Get Realm List for Schedule
 	 *
      */
-    public function getScheduleListRealm () {
+    public function getRealmList () {
     	return $this->request(sprintf(self::URL_MATCHES_LIST_REALM));
     }
-	
+
+
 	/**
-     * Get List of Leagues for Schedule
-	 *
+     * Get League List
+	 * 
      */
-    public function getScheduleListLeague () {
+    public function getLeagueList () {
     	return $this->request(sprintf(self::URL_MATCHES_LIST_LEAGUE));
     }
-	
+
+
 	/**
-     * Get List of Clubs for Schedule
+     * Get Club List for Schedule
 	 *
      */
-    public function getScheduleListClub () {
+    public function getClubList () {
     	return $this->request(sprintf(self::URL_MATCHES_LIST_CLUB));
     }
 	
 	/**
-     * Get List of Teams for Schedule
+     * Get Team List for Schedule
 	 *
      */
-    public function getScheduleListTeam () {
+    public function getTeamList () {
     	return $this->request(sprintf(self::URL_MATCHES_LIST_TEAM));
     }
 
+
+	/**
+     * Get Team List of Liga for Schedule
+	 *
+     */
+    public function getTeamListLiga ($league) {
+    	return $this->request(sprintf(self::URL_MATCHES_LIST_LIGA_TEAM. $league));
+    }
+	
+	/**
+     * Get Team List of Club for Schedule
+	 *
+     */
+    public function getTeamListClub ($club) {
+    	return $this->request(sprintf(self::URL_MATCHES_LIST_CLUB_TEAM, $club));
+    }
 
 
 
@@ -125,7 +136,7 @@ class BvnchSDK {
 	 * @param string $id     The Selection ID (e.g. 'H2L', 'bc-muenchenstein', 'h2l-bc-münchenstein')
      */
     public function getMatches($realm, $id, $view) {
-    	return $this->request(sprintf(self::URL_MATCHES, $realm, $id));
+    	return $this->request(sprintf(self::URL_MATCHES, $realm, $id, $view));
     }
 
     /** 
