@@ -5,8 +5,7 @@ Satellite to the BVN.ch API
 This Satellite (https://github.com/atlan79/bvn-satellite) provides widgets to WordPress.
 Multiple instances are supported.
 Backend configuration available.
-The SDK is currently under development, so functions, readme and/or examples will
-change. If other views are required, I'll try to add them in. Feel free to fork and help out!
+The SDK is currently under development, so functions, readme and/or examples will change. If other views are required, I'll try to add them in. Feel free to fork and help out!
 
 
 ## Requirements
