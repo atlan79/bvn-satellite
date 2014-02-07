@@ -1,8 +1,8 @@
-#BVN.ch Satelite
+#BVN.ch Satellite
 ===============
 
-Satelite to the BVN.ch API
-This Satelite (https://github.com/atlan79/bvn-satelite) provides widgets to WordPress.
+Satellite to the BVN.ch API
+This Satellite (https://github.com/atlan79/bvn-satellite) provides widgets to WordPress.
 Multiple instances are supported.
 Backend configuration available.
 The SDK is currently under development, so functions, readme and/or examples will
@@ -11,7 +11,7 @@ change. If other views are required, I'll try to add them in. Feel free to fork 
 
 ## Requirements
 
-BVN Satelite requires PHP 5.3.0 or later with cURL.
+BVN Satellite requires PHP 5.3.0 or later with cURL.
 
 ## Installation
 
@@ -22,7 +22,9 @@ Copy content to plugins folder in your WordPress and activate.
 
 #### Basic usage 
 
-Use the Backend, to select the Display mode (ranking/matches), provide the nessecary parameters for the API.
+Use the Admin Panel to celect the Club you want to use the plugin for.
+Add Widgets to the pages of your choice to display ranking or matches. All necessary parameters can be provided in the widget backend.
+Additional use of plug-in "widget-logic" for different rankings on different pages with same templates is highly recommended.
 
 #### More Examples
 
@@ -39,7 +41,7 @@ Refer to the LICENSE.md file for license information
 
 ## Reference
 
-[BVN Satelite](https://github.com/atlan79/bvn-satelite), 
+[BVN Satelite](https://github.com/atlan79/bvn-satellite), 
 [BVN.ch](http://www.bvn.ch/), 
 [BVN.ch API](http://api.bvn.ch/vi/),
 [BCM-Basket](http://www.bcm-basket.ch/),
