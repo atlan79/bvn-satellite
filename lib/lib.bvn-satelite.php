@@ -6,7 +6,7 @@
  * 
  * @author Thomas Winter
  * @license https://github.com/atlan79/bvn-satellite/blob/master/LICENSE.md MIT
- * @version 1.2
+ * @version 1.3
  */ 
  
 /**
