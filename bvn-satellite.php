@@ -3,7 +3,7 @@
 Plugin Name: BVN Satellite
 Plugin URI: http://www.bvn.ch
 Description: Reads Data from the BVN.ch API and displays them in a WordPress Widget
-Version: 1.2
+Version: 1.3
 Author: Thomas Winter
 Author URI: http://www.houseofwinter.ch
 @license https://github.com/atlan79/bvn-satellite/blob/master/LICENSE.md MIT
@@ -46,6 +46,7 @@ class bvn_satellite extends WP_Widget {
 		$api_club = apply_filters( 'widget_api_club', $instance['api_club'] );
 		$api_team = apply_filters( 'widget_api_team', $instance['api_team'] );
 		$api_view = apply_filters( 'widget_api_view', $instance['api_view'] );
+		$api_limit = apply_filters( 'widget_api_limit', $instance['api_limit'] );
 		$api_league_id = apply_filters( 'widget_api_league_id', $instance['api_league_id'] );
 		$api_highlight = apply_filters( 'widget_api_highlight', $instance['api_highlight'] );
 		
@@ -75,9 +76,9 @@ class bvn_satellite extends WP_Widget {
 			} elseif($api_model == "matches") {
 				//echo __( 'API Model Matches', 'text_domain' );
 				
-				$objGames = $this->bvnch->getMatches ($api_realm, $api_id, $api_view);
+				$objGames = $this->bvnch->getMatches ($api_realm, $api_id, $api_view, $api_limit);
 
-				bvnsat_parseGamesWidget ($objGames, $api_realm, $api_id, $api_view, $api_highlight);
+				bvnsat_parseGamesWidget ($objGames, $api_realm, $api_id, $api_view, $api_limit, $api_highlight);
 				//print_r($objGames);
 			}
 		} else {
@@ -102,6 +103,7 @@ class bvn_satellite extends WP_Widget {
 															 'api_club' => '', 
 															 'api_team' => '', 
 															 'api_view' => '', 
+															 'api_limit' => '', 
 															 'api_league_id' => '', 
 															 'api_highlight' => '') );
 		if ( isset( $instance[ 'api_model' ] ) ) {
@@ -133,6 +135,11 @@ class bvn_satellite extends WP_Widget {
 			$api_view = $instance[ 'api_view' ];
 		} else {
 			$api_view = __( 'New api_view', 'text_domain' );
+		}
+		if ( isset( $instance[ 'api_limit' ] ) ) {
+			$api_view = $instance[ 'api_limit' ];
+		} else {
+			$api_view = __( 'New api_limit', 'text_domain' );
 		}
 		if ( isset( $instance[ 'api_league_id' ] ) ) {
 			$api_league_id = $instance[ 'api_league_id' ];
@@ -231,6 +238,9 @@ class bvn_satellite extends WP_Widget {
 		<label for="<?php echo $this->get_field_id( 'api_view' ); ?>" style="display: block"><?php _e( 'API View:' ); ?></label> 
 		<input id="<?php echo $this->get_field_id( 'api_view' ); ?>" name="<?php echo $this->get_field_name( 'api_view' ); ?>" type="text" value="<?php echo esc_attr( $api_view ); ?>" style="width:100%;" /><br />
         
+		<label for="<?php echo $this->get_field_id( 'api_limit' ); ?>" style="display: block"><?php _e( 'API Limit:' ); ?></label> 
+		<input id="<?php echo $this->get_field_id( 'api_limit' ); ?>" name="<?php echo $this->get_field_name( 'api_limit' ); ?>" type="text" value="<?php echo esc_attr( $api_limit ); ?>" style="width:100%;" /><br />
+        
 		<label for="<?php echo $this->get_field_id( 'api_league_id' ); ?>" style="display: block"><?php _e( 'Liga Ranking:' ); ?></label>
         <select id="<?php echo $this->get_field_id( 'api_league_id' ); ?>" name="<?php echo $this->get_field_name( 'api_league_id' ); ?>" class="widefat" style="width:100%;">
 			<option value="" <?php if ( '' == esc_attr( $instance['api_league_id'] ) ) echo 'selected="selected"'; ?>>- select Liga -</option>
@@ -291,6 +301,7 @@ class bvn_satellite extends WP_Widget {
 																	 'api_club' => '', 
 																	 'api_team' => '', 
 																	 'api_view' => '', 
+																	 'api_limit' => '',
 																	 'api_league_id' => '', 
 																	 'api_highlight' => '') );
 		$instance['api_model'] = strip_tags($new_instance['api_model']);
@@ -299,6 +310,7 @@ class bvn_satellite extends WP_Widget {
 		$instance['api_club'] = strip_tags($new_instance['api_club']);
 		$instance['api_team'] = strip_tags($new_instance['api_team']);
 		$instance['api_view'] = strip_tags($new_instance['api_view']);
+		$instance['api_limit'] = strip_tags($new_instance['api_limit']);
 		$instance['api_league_id'] = strip_tags($new_instance['api_league_id']);
 		$instance['api_highlight'] = strip_tags($new_instance['api_highlight']);
 
