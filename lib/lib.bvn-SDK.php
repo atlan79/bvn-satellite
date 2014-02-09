@@ -6,7 +6,7 @@
  * 
  * @author Thomas Winter
  * @license https://github.com/atlan79/bvn-satellite/blob/master/LICENSE.md MIT
- * @version 1.2
+ * @version 1.3
  */
 class BvnchSDK {
 
@@ -38,7 +38,7 @@ class BvnchSDK {
     public $return_curl_errors = true;
 
 	/** @var string Set the useragent */
-	private $useragent = 'oesi BvnchSDK 0.1 beta';
+	private $useragent = 'oesi BvnchSDK 1.3';
 
 	
 	/** 
@@ -56,6 +56,7 @@ class BvnchSDK {
 
 	const URL_RANKING = 'ranking.php?format=json&league_id=%s';
 	const URL_MATCHES = 'matches.php?format=json&realm=%s&id=%s&view=%s';
+	const URL_MATCHES_LIMITED = 'matches.php?format=json&realm=%s&id=%s&view=%s&limit=%s';
 	const URL_MATCHES_TODAY = 'matches.php?format=json&realm=today';
 
     /**
@@ -134,9 +135,15 @@ class BvnchSDK {
      * Get Matches by Realm
 	 * @param string $realm  The Realm Qualifier (e.g. 'liga', 'club', 'team')
 	 * @param string $id     The Selection ID (e.g. 'H2L', 'bc-muenchenstein', 'h2l-bc-münchenstein')
+	 * @param string $view   The View (e.g. 'last', 'next', 'all')
+	 * @param int $limit     The Limit Selection ID (e.g. 'H2L', 'bc-muenchenstein', 'h2l-bc-münchenstein')
      */
-    public function getMatches($realm, $id, $view) {
-    	return $this->request(sprintf(self::URL_MATCHES, $realm, $id, $view));
+    public function getMatches($realm, $id, $view = null, $limit = null) {
+		if( isset( $limit ) ) {
+	    	return $this->request(sprintf(self::URL_MATCHES_LIMITED, $realm, $id, $view, $limit));
+		} else {
+	    	return $this->request(sprintf(self::URL_MATCHES, $realm, $id, $view));
+		}
     }
 
     /** 
