@@ -137,9 +137,9 @@ class bvn_satellite extends WP_Widget {
 			$api_view = __( 'New api_view', 'text_domain' );
 		}
 		if ( isset( $instance[ 'api_limit' ] ) ) {
-			$api_view = $instance[ 'api_limit' ];
+			$api_limit = $instance[ 'api_limit' ];
 		} else {
-			$api_view = __( 'New api_limit', 'text_domain' );
+			$api_limit = __( 'New api_limit', 'text_domain' );
 		}
 		if ( isset( $instance[ 'api_league_id' ] ) ) {
 			$api_league_id = $instance[ 'api_league_id' ];
