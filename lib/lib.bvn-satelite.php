@@ -6,7 +6,7 @@
  * 
  * @author Thomas Winter
  * @license https://github.com/atlan79/bvn-satellite/blob/master/LICENSE.md MIT
- * @version 1.2
+ * @version 1.3
  */ 
  
 /**
@@ -56,7 +56,7 @@ function bvnsat_parseRankingWidget ($objRanking, $highlight) {
  * Parse Games
  * @param array with Schedule Data $arGames
   */
-function bvnsat_parseGamesWidget ($objGames, $api_realm, $api_id, $api_view, $highlight) {
+function bvnsat_parseGamesWidget ($objGames, $api_realm, $api_id, $api_view, $api_limit, $highlight) {
 		echo '<div style="float:left">';
 		echo '<table class="noborder" style="width:260px">';
 		echo '<thead>';
