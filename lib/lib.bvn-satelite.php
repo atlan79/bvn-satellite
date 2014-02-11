@@ -6,7 +6,7 @@
  * 
  * @author Thomas Winter
  * @license https://github.com/atlan79/bvn-satellite/blob/master/LICENSE.md MIT
- * @version 1.3
+ * @version 1.4
  */ 
  
 /**
@@ -63,7 +63,11 @@ function bvnsat_parseGamesWidget ($objGames, $api_realm, $api_id, $api_view, $ap
 		echo '<tr>';
 		echo '<td class="nopadding">Datum</td>';
 		echo '<td colspan="2" class="nopadding">Begegnung</td>';
-		echo '<td class="nopadding">Score</td>';
+		if($api_view == "next") {
+			echo '<td class="nopadding">Halle</td>';	
+		} else {
+			echo '<td class="nopadding">Score</td>';
+		}
 		echo '</tr>';
 		echo '</thead>';
 		foreach ($objGames as $game) {
@@ -79,10 +83,14 @@ function bvnsat_parseGamesWidget ($objGames, $api_realm, $api_id, $api_view, $ap
 			} else {
 				echo '<td class="nopadding" title="'.$game->awayName.'">'.$game->awayTeam5lc.'</td>';
 			}
-			if($game->homescore != 0 &&  $game->awayscore != 0 ) {
-				echo '<td class="nopadding">'.$game->homescore .':'. $game->awayscore.'</td>';
+			if($api_view == "next") {
+				echo '<td class="nopadding">'.$game->gymName .'</td>';
 			} else {
-				echo '<td class="nopadding">&nbsp;</td>';
+				if($game->homescore != 0 &&  $game->awayscore != 0 ) {
+					echo '<td class="nopadding">'.$game->homescore .':'. $game->awayscore.'</td>';
+				} else {
+					echo '<td class="nopadding">&nbsp;</td>';
+				}
 			}
 			echo '</tr>';
 		}

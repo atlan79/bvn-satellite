@@ -6,7 +6,7 @@
  * 
  * @author Thomas Winter
  * @license https://github.com/atlan79/bvn-satellite/blob/master/LICENSE.md MIT
- * @version 1.2
+ * @version 1.4
  */
 /*
  * Functions start here
@@ -127,6 +127,23 @@ function bvn_satellite_option_page() {
 	$api_club = get_option('bvn_satellite_api_club');
 
 	?>
+    
+  <style type="text/css" media="screen">
+    .bvn-satellite-log th {
+        font-weight: bold;
+    }
+    .bvn-satellite-log td, .bvn-satellite-log th {
+        padding: 1px 5px 1px 5px;
+    }
+    td.bvn-satellite-url {
+        font-family:  "Courier New", Courier, monospace;
+        vertical-align: top;
+    }
+    td.bvn-satellite-max {
+        width: 100%;
+    }
+  </style>
+    
 	<div class="wrap">
 	  <h2><?php echo __('BVN Satellite Settings','bvn-satellite-panel'); ?></h2>
 	  <h3><?php echo __('Dropdown Options Selection','bvn-satellite-panel'); ?></h3>
@@ -163,21 +180,7 @@ function bvn_satellite_option_page() {
 		  <input name="submit" value="<?php echo __('Clear Clubs','bvn-satellite-panel'); ?>" type="submit" />
 		</p>
 	  </form>
-	  <style type="text/css" media="screen">
-		.bvn-satellite-log th {
-			font-weight: bold;
-		}
-		.bvn-satellite-log td, .bvn-satellite-log-log th {
-			padding: 1px 5px 1px 5px;
-		}
-		td.bvn-satellite-url {
-			font-family:  "Courier New", Courier, monospace;
-			vertical-align: top;
-		}
-		td.bvn-satellite-right {
-			width: 50%;
-		}
-	  </style>
+
 	  <div class="bvn-satellite-log">
 		<table class="form-table ">
 		  <?php bvn_satellite_show_list($arClubOptionsList); ?>
@@ -200,21 +203,7 @@ function bvn_satellite_option_page() {
 		  <input name="submit" value="<?php echo __('Clear Leagues','bvn-satellite-panel'); ?>" type="submit" />
 		</p>
 	  </form>
-	  <style type="text/css" media="screen">
-		.bvn-satellite-log th {
-			font-weight: bold;
-		}
-		.bvn-satellite-log td, .bvn-satellite-log th {
-			padding: 1px 5px 1px 5px;
-		}
-		td.bvn-satellite-url {
-			font-family:  "Courier New", Courier, monospace;
-			vertical-align: top;
-		}
-		td.bvn-satellite-max {
-			width: 100%;
-		}
-	  </style>
+
 	  <div class="bvn-satellite-log">
 		<table class="form-table">
 		  <?php bvn_satellite_show_list($arLigaOptionsList); ?>
@@ -237,21 +226,7 @@ function bvn_satellite_option_page() {
 		  <input name="submit" value="<?php echo __('Clear Teams','bvn-satellite-panel'); ?>" type="submit" />
 		</p>
 	  </form>
-	  <style type="text/css" media="screen">
-		.bvn-satellite-log th {
-			font-weight: bold;
-		}
-		.bvn-satellite-log td, .bvn-satellite-log th {
-			padding: 1px 5px 1px 5px;
-		}
-		td.bvn-satellite-url {
-			font-family:  "Courier New", Courier, monospace;
-			vertical-align: top;
-		}
-		td.bvn-satellite-max {
-			width: 100%;
-		}
-	  </style>
+
 	  <div class="bvn-satellite-log">
 		<table class="form-table">
 		  <?php bvn_satellite_show_list($arTeamOptionsList); ?>
