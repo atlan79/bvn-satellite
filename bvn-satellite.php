@@ -3,7 +3,7 @@
 Plugin Name: BVN Satellite
 Plugin URI: http://www.bvn.ch
 Description: Reads Data from the BVN.ch API and displays them in a WordPress Widget
-Version: 1.4
+Version: 1.4.1
 Author: Thomas Winter
 Author URI: http://www.houseofwinter.ch
 @license https://github.com/atlan79/bvn-satellite/blob/master/LICENSE.md MIT
@@ -225,7 +225,7 @@ class bvn_satellite extends WP_Widget {
 	        <select id="<?php echo $this->get_field_id( 'api_league_id' ); ?>" name="<?php echo $this->get_field_name( 'api_league_id' ); ?>" class="widefat">
                 <option value=""><?php _e('- select league -', 'text_domain'); ?></option>
         	<?php foreach ($arApiLigaList as $value => $option) { ?>
-                <option value="<?= $value ?>" <?php selected( $instance['api_liga'], $value ); ?>><?= $option ?></option>
+                <option value="<?= $value ?>" <?php selected( $instance['api_league_id'], $value ); ?>><?= $option ?></option>
             <?php } ?>
 	        </select>
 		</p>
