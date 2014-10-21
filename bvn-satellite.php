@@ -1,12 +1,13 @@
 <?php
 /* 
 Plugin Name: BVN Satellite
-Plugin URI: http://www.bvn.ch
+Plugin URI: http://wordpress.org/plugins/bvn-satellite/
 Description: Reads Data from the BVN.ch API and displays them in a WordPress Widget
-Version: 1.4.1
+Version: 1.7.0
 Author: Thomas Winter
 Author URI: http://www.houseofwinter.ch
 @license https://github.com/atlan79/bvn-satellite/blob/master/LICENSE.md MIT
+@last changes 21.10.2014
 */
 
 
