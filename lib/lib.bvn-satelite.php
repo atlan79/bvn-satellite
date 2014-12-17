@@ -119,7 +119,7 @@ function bvnsat_parseGamesWidget ($objGames, $api_realm, $api_id, $api_view, $ap
 					echo '<td class="nopadding">'.$game->gymName.'</td>';
 				}
 				if($api_view != "next") {
-					if($game->homescore != 0 &&  $game->awayscore != 0 ) {
+					if($game->homescore != 0 || $game->awayscore != 0 ) {
 						echo '<td class="nopadding">'.$game->homescore .':'. $game->awayscore.'</td>';
 					} else {
 						echo '<td class="nopadding">&nbsp;</td>';
